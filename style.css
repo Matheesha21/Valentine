@@ -38,17 +38,21 @@ button { border:none; padding:12px 28px; font-size:1.2rem; border-radius:30px; c
 .letterIcon:hover { transform: scale(1.2) rotate(-10deg); }
 @keyframes bounce { 0%{ transform:translateY(0);} 100%{ transform:translateY(-15px);} }
 
-/* Romantic Text Glowing */
-.romanticText.hidden { display:none; }
-.romanticText.show {
-  display:block;
-  font-size:1.4rem;
-  color:#fff;
-  max-width:700px;
-  margin:30px auto 0 auto;
-  line-height:1.6;
+/* Romantic Text */
+.romanticText {
+  opacity: 0; /* hidden initially */
+  max-width: 700px;
+  margin: 30px auto 0 auto;
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: #fff;
   text-shadow: 0 0 5px #ff7bac, 0 0 10px #ff3e6c, 0 0 20px #ff1c44;
-  opacity:1;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: scale(0.8);
+}
+
+.romanticText.show {
+  opacity: 1;
   transform: scale(1);
   animation: glowText 2s ease-in-out infinite alternate;
 }

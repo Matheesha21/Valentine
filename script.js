@@ -86,27 +86,25 @@ yesBtn.addEventListener("click",()=>{
 // Letter Icon click
 const letterIcon = document.getElementById("letterIcon");
 const romanticText = document.getElementById("romanticText");
-
-// Save full text
-romanticText.dataset.fullText = romanticText.textContent;
-romanticText.textContent = "";
+const fullText = romanticText.textContent;  // save full text
+romanticText.textContent = "";             // start empty
 
 letterIcon.addEventListener("click", () => {
   letterIcon.style.display = "none";
-  romanticText.classList.remove("hidden");
-  romanticText.classList.add("show");
-  typeWriter(romanticText, romanticText.dataset.fullText, 40);
+  romanticText.classList.add("show");      // fade in + glow
+  typeWriter(romanticText, fullText, 40);
   for(let i=0;i<30;i++) particles.push(new Heart());
 });
 
 // Typewriter function
-function typeWriter(element,text,speed=100){
-  let i=0; element.textContent="";
-  const interval=setInterval(()=>{
-    element.textContent+=text.charAt(i);
+function typeWriter(element, text, speed=100){
+  let i=0;
+  element.textContent = "";
+  const interval = setInterval(()=>{
+    element.textContent += text.charAt(i);
     i++;
-    if(i>=text.length) clearInterval(interval);
-  },speed);
+    if(i >= text.length) clearInterval(interval);
+  }, speed);
 }
 
 // Falling petals
