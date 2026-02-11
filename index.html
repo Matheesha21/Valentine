@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Valentine Surprise 💖</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <canvas id="heartsCanvas"></canvas>
+  <!-- Canvas for hearts -->
+  <canvas id="animationCanvas"></canvas>
 
+  <!-- Background Music -->
   <audio id="bgMusic" loop>
     <source src="music.mp3" type="audio/mpeg">
   </audio>
 
+  <!-- Question Box -->
   <div class="questionBox" id="questionBox">
-    <h1>Will you be my Valentine? 💌</h1>
+    <h1 id="questionText">Will you be my Valentine? 💌</h1>
     <div class="buttons">
       <button id="yesBtn">YES 💖</button>
       <button id="noBtn">NO 😢</button>
@@ -23,18 +26,21 @@
     <p class="hint">(Try clicking NO 😏)</p>
   </div>
 
+  <!-- Surprise Page -->
   <div class="surprise hidden" id="surprisePage">
-    <h1 class="title">Happy Valentine’s Day 💖</h1>
+    <h1 class="title" id="titleText"></h1>
     <h2 class="subtitle">Apuu 🌹</h2>
-    <p class="msg">You are my favorite person ❤️</p>
 
-    <div class="roseGarden">
-      <div class="rose rose1"></div>
-      <div class="rose rose2"></div>
-      <div class="rose rose3"></div>
-    </div>
+    <!-- Letter Icon -->
+    <div id="letterIcon" class="letterIcon" title="Click me 💌">💌</div>
 
-    <p class="loveText">Forever yours 💌✨</p>
+    <!-- Romantic text hidden initially -->
+    <p class="romanticText hidden" id="romanticText">
+      Every moment with you feels like a dream come true. You make my world beautiful just by being in it. I love you more than words can ever say & you melt my heart since the day I saw you. It’s been years.
+    </p>
+
+    <!-- Petal Container -->
+    <div id="petalContainer"></div>
   </div>
 
   <script src="script.js"></script>
