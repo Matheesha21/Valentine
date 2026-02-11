@@ -86,11 +86,14 @@ yesBtn.addEventListener("click",()=>{
 // Letter Icon click
 const letterIcon = document.getElementById("letterIcon");
 const romanticText = document.getElementById("romanticText");
-letterIcon.dataset.fullText = romanticText.textContent;
+
+// Save full text
+romanticText.dataset.fullText = romanticText.textContent;
 romanticText.textContent = "";
 
 letterIcon.addEventListener("click", () => {
   letterIcon.style.display = "none";
+  romanticText.classList.remove("hidden");
   romanticText.classList.add("show");
   typeWriter(romanticText, romanticText.dataset.fullText, 40);
   for(let i=0;i<30;i++) particles.push(new Heart());
