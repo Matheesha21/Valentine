@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle, #ffb6c1, #ff4f81, #d1004b);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Canvas hearts */
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* Question Box */
+.questionBox {
+  position: relative;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.25);
+  padding: 40px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
+  animation: fadeIn 1s ease;
+}
+
+.questionBox h1 {
+  font-size: 2.2rem;
+  color: white;
+  text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.7);
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+button {
+  border: none;
+  padding: 12px 28px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+#yesBtn {
+  background: #00c853;
+  color: white;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+#yesBtn:hover {
+  transform: scale(1.1);
+  background: #00e676;
+}
+
+#noBtn {
+  background: #ff1744;
+  color: white;
+  position: absolute;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.hint {
+  margin-top: 20px;
+  color: white;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* Surprise Page */
+.surprise {
+  position: relative;
+  z-index: 5;
+  animation: fadeIn 1.2s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.title {
+  font-size: 3rem;
+  color: white;
+  text-shadow: 0px 0px 25px rgba(255, 255, 255, 0.8);
+  animation: glow 2s infinite alternate;
+}
+
+.subtitle {
+  font-size: 2.2rem;
+  margin-top: 10px;
+  color: #ffe6f0;
+}
+
+.msg {
+  margin-top: 15px;
+  font-size: 1.3rem;
+  color: white;
+}
+
+/* Rose Garden */
+.roseGarden {
+  display: flex;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 50px;
+}
+
+/* ROSE STEM */
+.rose {
+  width: 30px;
+  height: 150px;
+  background: linear-gradient(to bottom, #0f9d58, #0b6b3b);
+  border-radius: 20px;
+  position: relative;
+  transform: scaleY(0);
+  animation: growStem 2s forwards;
+}
+
+/* ROSE BLOOM */
+.rose::before {
+  content: "";
+  position: absolute;
+  top: -70px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle, #ff1744, #b00020);
+  border-radius: 50%;
+  animation: bloom 2.5s forwards;
+  animation-delay: 2s;
+  box-shadow: 0px 0px 30px rgba(255, 0, 80, 0.6);
+}
+
+/* ROSE PETALS EXTRA */
+.rose::after {
+  content: "";
+  position: absolute;
+  top: -65px;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255, 105, 135, 0.7), rgba(180, 0, 50, 0));
+  border-radius: 50%;
+  animation: bloomGlow 3s forwards;
+  animation-delay: 2.2s;
+}
+
+.rose1 {
+  animation-delay: 0.2s;
+}
+.rose2 {
+  animation-delay: 0.8s;
+}
+.rose3 {
+  animation-delay: 1.4s;
+}
+
+.loveText {
+  margin-top: 40px;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+}
+
+/* Animations */
+@keyframes growStem {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes bloom {
+  0% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes bloomGlow {
+  0% {
+    transform: translateX(-50%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0px 0px 10px #fff;
+  }
+  to {
+    text-shadow: 0px 0px 30px #ffb6c1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
